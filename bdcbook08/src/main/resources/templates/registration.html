@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org" layout:decorator="layout/main">
+
+<head>
+<title>Registration</title>
+</head>
+
+<body>
+	<div layout:fragment="content">
+		<div class="container">
+			<fieldset>
+				<legend th:text="#{title.registrationForm}">User
+					Registration Form</legend>
+
+				<form class="form-horizontal" th:action="@{user/register}"
+					 method="post">
+					<div class="form-group">
+						<label for="email" class="col-sm-2 control-label">email</label>
+
+						<div class="col-sm-4">
+							<input type="email" class="form-control" id="email"
+								placeholder="email" />
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="firstname" class="col-sm-2 control-label">firstname</label>
+
+						<div class="col-sm-4">
+							<input type="firstname" class="form-control" id="firstname"
+								placeholder="firstname" />
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="lastname" class="col-sm-2 control-label">lastname</label>
+
+						<div class="col-sm-4">
+							<input type="lastname" class="form-control" id="lastname"
+								placeholder="lastname" />
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="password" class="col-sm-2 control-label">password</label>
+
+						<div class="col-sm-4">
+							<input type="password" class="form-control" id="password"
+								placeholder="password" />
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="confirmPassword" class="col-sm-2 control-label">confirmPassword</label>
+
+						<div class="col-sm-4">
+							<input type="confirmPassword" class="form-control"
+								id="confirmPassword" placeholder="confirmPassword" />
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<button type="submit" class="btn btn-primary">Register</button>
+						</div>
+					</div>
+
+				</form>
+			</fieldset>
+
+
+		</div>
+
+
+
+	</div>
+
+
+
+</body>
+
+</html>

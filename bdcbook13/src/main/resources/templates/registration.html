@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org" layout:decorator="layout/main">
+
+<head>
+<title>Registration</title>
+</head>
+
+<body>
+	<div layout:fragment="content">
+		<div class="container">
+			<fieldset>
+				<legend th:text="#{title.registrationForm}">User
+					Registration Form</legend>
+
+				<form class="form-horizontal" role="form" th:action="@{/user/register}"
+					 th:object="${registrationForm}" method="post">
+					<div class="form-group">
+						<label for="email" class="col-sm-2 control-label" 
+							th:text="#{label.registrationForm.email}">email</label>
+
+						<div class="col-sm-4">
+							<input type="text" class="form-control" id="email"
+								placeholder="email" th:field="*{email}" />
+						</div>
+						<p class="text-danger"
+							th:if="${#fields.hasErrors('email')}">
+							<span th:errors="*{email}">Required</span>
+						</p>
+					</div>
+
+					<div class="form-group">
+						<label for="firstname" class="col-sm-2 control-label"
+							th:text="#{label.registrationForm.firstName}">firstname</label>
+
+						<div class="col-sm-4">
+							<input type="text" class="form-control" id="firstName"
+								placeholder="first name" th:field="*{firstName}"/>
+						</div>
+						<p class="text-danger"
+							th:if="${#fields.hasErrors('firstName')}">
+							<span th:errors="*{firstName}">Required</span>
+						</p>
+					</div>
+
+					<div class="form-group">
+						<label for="lastname" class="col-sm-2 control-label"
+							th:text="#{label.registrationForm.lastName}">lastname</label>
+
+						<div class="col-sm-4">
+							<input type="text" class="form-control" id="lastName"
+								placeholder="last name" th:field="*{lastName}" />
+						</div>
+						<p class="text-danger"
+							th:if="${#fields.hasErrors('lastName')}">
+							<span th:errors="*{lastName}">Required</span>
+						</p>
+					</div>
+
+					<div class="form-group">
+						<label for="password" class="col-sm-2 control-label"
+							th:text="#{label.registrationForm.password}">password</label>
+
+						<div class="col-sm-4">
+							<input type="password" class="form-control" id="password"
+								placeholder="password" th:field="*{password}" />
+						</div>
+						<p class="text-danger"
+							th:if="${#fields.hasErrors('password')}">
+							<span th:errors="*{password}">Required</span>
+						</p>
+					</div>
+
+					<div class="form-group">
+						<label for="confirmPassword" class="col-sm-2 control-label"
+							th:text="#{label.registrationForm.passwordConfirmed}">confirmPassword</label>
+
+						<div class="col-sm-4">
+							<input type="password" class="form-control"
+								id="passwordConfirmed" placeholder="Confirm Password" th:field="*{passwordConfirmed}" />
+						</div>
+						<p class="text-danger"
+							th:if="${#fields.hasErrors('passwordConfirmed')}">
+							<span th:errors="*{passwordConfirmed}">Required</span>
+						</p>
+					</div>
+
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<button type="submit" class="btn btn-primary" 
+								th:text="#{button.register}">Register</button>
+						</div>
+					</div>
+
+				</form>
+			</fieldset>
+
+
+		</div>
+
+
+
+	</div>
+
+
+
+</body>
+
+</html>

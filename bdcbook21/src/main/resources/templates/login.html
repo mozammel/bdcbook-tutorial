@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/main">
+<head>
+<title>Login</title>
+</head>
+<body>
+
+	<div layout:fragment="content">
+
+		<div class="alert alert-warning alert-dismissible" role="alert">
+			<button type="button" class="close" data-dismiss="alert"
+				aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			<div th:if="${param.error}">Invalid username and password.</div>
+		</div>
+
+
+		<form class="form-horizontal" role="form" th:action="@{/login}"
+			method="post">
+
+			<div class="form-group">
+				<label for="username" class="col-sm-2 control-label"> User
+					Name </label>
+				<div class="col-sm-4">
+					<input type="text" class="form-control" id="username"
+						name="username" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="password" class="col-sm-2 control-label">
+					Password </label>
+
+				<div class="col-sm-4">
+					<input type="password" class="form-control" id="password"
+						name="password" />
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-primary"
+						th:text="#{button.signin}">Sign In</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</body>
+</html>
